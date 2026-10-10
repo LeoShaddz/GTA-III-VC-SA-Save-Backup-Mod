@@ -1,1 +1,7 @@
-# GTA-III-VC-SA-Save-Backup
+# GTA III-VC-SA Save Backup
+
+This mod creates a backup of your save in the last save slot whenever you save the game. It is compatible with the PortableGTA mod; to enable this compatibility, you must activate it in the .ini file.
+
+AI disclosure: The code of this mod was written by Claude Sonnet 5.5 and tested in-game by me.
+
+If you encounter any issues, feel free to contribute or even create your own version. Sorry for any problem.
