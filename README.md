@@ -1,4 +1,4 @@
-# GTA III-VC-SA Save Backup Mod
+# GTA III/Vice City/San Andreas Save Backup Mod
 
 This mod creates a backup of your save in the last save slot whenever you save the game. It is compatible with the PortableGTA mod; to enable this compatibility, you must activate it in the .ini file.
 
