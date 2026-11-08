@@ -1,1 +1,31 @@
-null
+name: Build SaveTools ASI
+
+on:
+  push:
+  workflow_dispatch:
+
+jobs:
+  build:
+    runs-on: windows-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: ilammy/msvc-dev-cmd@v1
+        with:
+          arch: x86
+
+      - name: Compile
+        shell: pwsh
+        run: |
+          $src = Get-ChildItem -Recurse -Filter SaveTools.cpp | Select-Object -First 1
+          if (-not $src) { throw "SaveTools.cpp not found" }
+          Set-Location $src.DirectoryName
+          cl /nologo /LD /O2 /MT /EHsc /D_CRT_SECURE_NO_WARNINGS SaveTools.cpp /Fe:SaveTools.asi /link user32.lib kernel32.lib shell32.lib
+          if ($LASTEXITCODE -ne 0) { throw "Build failed" }
+
+      - uses: actions/upload-artifact@v4
+        with:
+          name: SaveTools
+          path: |
+            **/SaveTools.asi
+            **/SaveTools.ini
